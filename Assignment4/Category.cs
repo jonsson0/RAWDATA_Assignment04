@@ -3,6 +3,7 @@ using Npgsql;
 
 namespace Assignment4
 {
+    //ass4 outside
     public class Category
     {
         public int Id { get; set; }

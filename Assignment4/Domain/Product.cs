@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment4.Domain
 {
+    //ass4
     public class Product
     {
         public int Id { get; set; }
