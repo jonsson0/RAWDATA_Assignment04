@@ -4,12 +4,9 @@ using System.Text;
 
 namespace Assignment4
 {
-    class Class1
-    {
-    }
 
-//    public class AdoProgram
-//    {
+  public class AdoProgram
+    {
 //        static void Main(string[] args)
 //        {
 //            var connStr = "host=localhost;db=northwind;uid=bulskov;pwd=henrik";
@@ -36,5 +33,5 @@ namespace Assignment4
 
 //        }
 //    }
-//}
+    }
 }
