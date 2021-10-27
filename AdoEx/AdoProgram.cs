@@ -1,5 +1,7 @@
 ﻿using System;
 using Npgsql;
+using System.Collections.Generic;
+
 
 namespace AdoEx
 {
