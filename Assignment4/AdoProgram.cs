@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using Npgsql;
 
@@ -10,12 +11,24 @@ namespace Assignment4
         //ass4
         static void Main(string[] args)
         {
-            var connStr = "host=rawdata.ruc.dk;db=raw14;uid=raw14;pwd=I.eSywI3";
+            //  var connStr = "host=rawdata.ruc.dk;db=raw14;uid=raw14;pwd=I.eSywI3";
+            //  var connStr2 = "host=localhost;db=northwind;uid=postgres;pwd=XXXXXX";
 
-            var conn = new NpgsqlConnection(connStr);
+            // Insted of one of the above we have our own
+            // saved in a txt file that we then read from
+
+            string connStringFromFile;
+           
+            using (StreamReader readtext = new StreamReader("C:/Login/Login.txt"))
+            {
+                connStringFromFile = readtext.ReadLine();
+            }         
+
+            var conn = new NpgsqlConnection(connStringFromFile);
             conn.Open();
 
             var cmd = conn.CreateCommand();
+            //  cmd.CommandText = "select * from northwind.categories";
             cmd.CommandText = "select * from categories";
             cmd.Connection = conn;
 
@@ -31,6 +44,10 @@ namespace Assignment4
                 };
                 Console.WriteLine(category);
             }
+
+            var service = new DataService();
+          //  service.GetCategories();
+
 
         }
     }

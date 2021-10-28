@@ -1,6 +1,7 @@
 ﻿using Assignment4.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
 
 namespace Assignment4
 {
@@ -16,7 +17,19 @@ namespace Assignment4
 
             optionsBuilder.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
             optionsBuilder.EnableSensitiveDataLogging();
-            optionsBuilder.UseNpgsql("host=rawdata.ruc.dk;db=raw14;uid=raw14;pwd=I.eSywI3");
+
+            //  optionsBuilder.UseNpgsql("host=rawdata.ruc.dk;db=raw14;uid=raw14;pwd=I.eSywI3");
+            //  optionsBuilder.UseNpgsql("host=localhost;db=northwind;uid=postgres;pwd=XXXXXX");
+
+            // Insted of one of the above we have our own
+            // saved in a txt file that we then read from
+            string connStringFromFile;
+
+            using (StreamReader readtext = new StreamReader("C:/Login/Login.txt"))
+            {
+                connStringFromFile = readtext.ReadLine();
+            }
+            optionsBuilder.UseNpgsql(connStringFromFile);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -31,6 +31,7 @@ namespace Assignment4
 
             public IList<Category> GetCategories()
             {
+            Console.WriteLine("yoyoyo");
                 var ctx = new NorthwindContext();
                 return ctx.Categories.ToList();
             }
