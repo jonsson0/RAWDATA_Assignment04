@@ -44,11 +44,6 @@ namespace Assignment4
                 };
                 Console.WriteLine(category);
             }
-
-            var service = new DataService();
-          //  service.GetCategories();
-
-
         }
     }
 }
