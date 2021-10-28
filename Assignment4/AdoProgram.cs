@@ -10,7 +10,7 @@ namespace Assignment4
         //ass4
         static void Main(string[] args)
         {
-            var connStr = "host=localhost;db=northwind;uid=bulskov;pwd=henrik";
+            var connStr = "host=rawdata.ruc.dk;db=raw14;uid=raw14;pwd=I.eSywI3";
 
             var conn = new NpgsqlConnection(connStr);
             conn.Open();
@@ -35,4 +35,4 @@ namespace Assignment4
         }
     }
 }
-}
+
