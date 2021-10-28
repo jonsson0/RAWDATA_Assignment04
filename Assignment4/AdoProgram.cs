@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using Assignment4.Domain;
 using Npgsql;
 
 namespace Assignment4
