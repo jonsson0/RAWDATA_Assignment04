@@ -45,7 +45,13 @@ namespace Assignment4
                 };
                 Console.WriteLine(category);
             }
+
+            // Can test stuff here live insted of tests:
+            DataService dataService = new DataService();
+
+         // eg:
+         //   dataService.GetCategory(1);
+        
         }
     }
 }
-
