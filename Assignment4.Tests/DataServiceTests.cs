@@ -36,7 +36,7 @@ namespace Assignment4.Tests
             Assert.Equal("Beverages", category.Name);
         }
 
-        
+        /*
         // 04
         [Fact]
         public void CreateCategory_ValidData_CreteCategoryAndRetunsNewObject()
@@ -50,7 +50,7 @@ namespace Assignment4.Tests
             // cleanup
             service.DeleteCategory(category.Id);
         }
-
+        */
          // 05
          /*
         [Fact]
@@ -151,7 +151,7 @@ namespace Assignment4.Tests
 
      //    orders 
 
-        // 13
+        */
         [Fact]
         public void Order_Object_HasIdDatesAndOrderDetails()
         {
@@ -163,7 +163,7 @@ namespace Assignment4.Tests
             Assert.Null(order.ShipName);
             Assert.Null(order.ShipCity);
         }
-
+        /*
         // 14
         [Fact]
         public void GetOrder_ValidId_ReturnsCompleteOrder()

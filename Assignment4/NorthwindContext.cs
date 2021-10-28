@@ -11,6 +11,7 @@ namespace Assignment4
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get ;  set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -49,6 +50,21 @@ namespace Assignment4
             modelBuilder.Entity<Product>().Property(x => x.CategoryId).HasColumnName("categoryid");
 
             modelBuilder.Entity<Order>().ToTable("orders");
+            modelBuilder.Entity<Order>().Property(x => x.Id).HasColumnName("orderid");
+            modelBuilder.Entity<Order>().Property(x => x.OrderDate).HasColumnName("orderdate");
+            modelBuilder.Entity<Order>().Property(x => x.RequiredDate).HasColumnName("requireddate");
+            modelBuilder.Entity<Order>().Property(x => x.Freight).HasColumnName("freight");
+            modelBuilder.Entity<Order>().Property(x => x.ShipName).HasColumnName("shipname");
+            modelBuilder.Entity<Order>().Property(x => x.ShipCity).HasColumnName("shipcity");
+
+            modelBuilder.Entity<OrderDetail>().ToTable("orderdetails");
+            modelBuilder.Entity<OrderDetail>().Property(x => x.UnitPrice).HasColumnName("unitprice");
+            modelBuilder.Entity<OrderDetail>().Property(x => x.Quantity).HasColumnName("quantity");
+            modelBuilder.Entity<OrderDetail>().Property(x => x.Discount).HasColumnName("discount");
+            modelBuilder.Entity<OrderDetail>().Property(x => x.OrderId).HasColumnName("orderid");
+            modelBuilder.Entity<OrderDetail>().Property(x => x.ProductId).HasColumnName("productid");
+
+
 
         }
     }
