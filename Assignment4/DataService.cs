@@ -20,6 +20,11 @@ namespace Assignment4
 
         Category GetCategory(int id);
 
+        IList<Order> GetOrders();
+
+      
+        
+
 
     }
 
@@ -70,6 +75,14 @@ namespace Assignment4
             var ctx = new NorthwindContext();
             return ctx.Products.ToList();
         }
+
+        public IList<Order> GetOrders()
+        {
+            var cxt = new NorthwindContext();
+            return cxt.Orders.ToList();
+            
+        }
+
     }
 }
     
