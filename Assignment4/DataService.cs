@@ -11,36 +11,49 @@ using Assignment4;
 namespace Assignment4
 {
     // Ass4
-        public interface IDataService
-        {
-           IList<Category> GetCategories();
-            bool CreateCategory(Category category);
+    public interface IDataService
+    {
+        IList<Category> GetCategories();
+        bool CreateCategory(Category category);
 
-            IList<Product> GetProducts();
+        IList<Product> GetProducts();
+
+        Category GetCategory(int id);
+
+
+    }
+
+    public class DataService : IDataService
+    {
+        public bool CreateCategory(Category category)
+        {
+            var ctx = new NorthwindContext();
+            category.Id = ctx.Categories.Max(x => x.Id) + 1;
+            ctx.Add(category);
+            return ctx.SaveChanges() > 0;
         }
 
-        public class DataService : IDataService
+        public IList<Category> GetCategories()
         {
-            public bool CreateCategory(Category category)
-            {
-                var ctx = new NorthwindContext();
-                category.Id = ctx.Categories.Max(x => x.Id) + 1;
-                ctx.Add(category);
-                return ctx.SaveChanges() > 0;
-            }
+            var ctx = new NorthwindContext();
+            return ctx.Categories.ToList();
+        }
 
-            public IList<Category> GetCategories()
-            {
-            Console.WriteLine("yoyoyo");
-                var ctx = new NorthwindContext();
-                return ctx.Categories.ToList();
-            }
 
-            public IList<Product> GetProducts()
-            {
-                var ctx = new NorthwindContext();
-                return ctx.Products.ToList();
-            }
+        public Category GetCategory(int id)
+        {
+            var list = GetCategories();
+            return list[id];
+        }
+
+
+        public IList<Product> GetProducts()
+        {
+            var ctx = new NorthwindContext();
+            return ctx.Products.ToList();
         }
     }
+}
+    
+
 

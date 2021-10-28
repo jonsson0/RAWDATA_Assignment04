@@ -10,6 +10,7 @@ namespace Assignment4
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get ;  set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -46,6 +47,8 @@ namespace Assignment4
             modelBuilder.Entity<Product>().Property(x => x.Id).HasColumnName("productid");
             modelBuilder.Entity<Product>().Property(x => x.Name).HasColumnName("productname");
             modelBuilder.Entity<Product>().Property(x => x.CategoryId).HasColumnName("categoryid");
+
+            modelBuilder.Entity<Order>().ToTable("orders");
 
         }
     }

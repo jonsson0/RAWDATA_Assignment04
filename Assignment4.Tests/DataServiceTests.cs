@@ -8,7 +8,7 @@ namespace Assignment4.Tests
     public class DataServiceTests
     {
         /* Categories */
-
+        // 01
         [Fact]
         public void Category_Object_HasIdNameAndDescription()
         {
@@ -18,6 +18,7 @@ namespace Assignment4.Tests
             Assert.Null(category.Description);
         }
 
+        // 02
         [Fact]
         public void GetAllCategories_NoArgument_ReturnsAllCategories()
         {
@@ -26,7 +27,7 @@ namespace Assignment4.Tests
             Assert.Equal(8, categories.Count);
             Assert.Equal("Beverages", categories.First().Name);
         }
-       /*
+        // 03
         [Fact]
         public void GetCategory_ValidId_ReturnsCategoryObject()
         {
@@ -35,6 +36,8 @@ namespace Assignment4.Tests
             Assert.Equal("Beverages", category.Name);
         }
 
+        
+        // 04
         [Fact]
         public void CreateCategory_ValidData_CreteCategoryAndRetunsNewObject()
         {
@@ -48,6 +51,8 @@ namespace Assignment4.Tests
             service.DeleteCategory(category.Id);
         }
 
+         // 05
+         /*
         [Fact]
         public void DeleteCategory_ValidId_RemoveTheCategory()
         {
@@ -59,6 +64,7 @@ namespace Assignment4.Tests
             Assert.Null(category);
         }
 
+        // 06
         [Fact]
         public void DeleteCategory_InvalidId_ReturnsFalse()
         {
@@ -67,6 +73,7 @@ namespace Assignment4.Tests
             Assert.False(result);
         }
 
+        // 07
         [Fact]
         public void UpdateCategory_NewNameAndDescription_UpdateWithNewValues()
         {
@@ -85,6 +92,7 @@ namespace Assignment4.Tests
             service.DeleteCategory(category.Id);
         }
 
+        // 08
         [Fact]
         public void UpdateCategory_InvalidID_ReturnsFalse()
         {
@@ -96,6 +104,7 @@ namespace Assignment4.Tests
 
       //   products 
 
+        // 09
         [Fact]
         public void Product_Object_HasIdNameUnitPriceQuantityPerUnitAndUnitsInStock()
         {
@@ -107,6 +116,7 @@ namespace Assignment4.Tests
             Assert.Equal(0, product.UnitsInStock);
         }
 
+        // 10
         [Fact]
         public void GetProduct_ValidId_ReturnsProductWithCategory()
         {
@@ -116,6 +126,7 @@ namespace Assignment4.Tests
             Assert.Equal("Beverages", product.Category.Name);
         }
 
+        // 11
         [Fact]
         public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
         {
@@ -127,6 +138,7 @@ namespace Assignment4.Tests
             Assert.Equal("Lakkalikööri", products.Last().Name);
         }
 
+        // 12
         [Fact]
         public void GetProduct_NameSubString_ReturnsProductsThatMachesTheSubString()
         {
@@ -139,6 +151,7 @@ namespace Assignment4.Tests
 
      //    orders 
 
+        // 13
         [Fact]
         public void Order_Object_HasIdDatesAndOrderDetails()
         {
@@ -151,6 +164,7 @@ namespace Assignment4.Tests
             Assert.Null(order.ShipCity);
         }
 
+        // 14
         [Fact]
         public void GetOrder_ValidId_ReturnsCompleteOrder()
         {
@@ -161,6 +175,7 @@ namespace Assignment4.Tests
             Assert.Equal("Dairy Products", order.OrderDetails.First().Product.Category.Name);
         }
 
+        // 15
         [Fact]
         public void GetOrders()
         {
@@ -172,6 +187,7 @@ namespace Assignment4.Tests
 
       //   orderdetails 
 
+        // 16
         [Fact]
         public void OrderDetails_Object_HasOrderProductUnitPriceQuantityAndDiscount()
         {
@@ -184,7 +200,8 @@ namespace Assignment4.Tests
             Assert.Equal(0.0, orderDetails.Quantity);
             Assert.Equal(0.0, orderDetails.Discount);
         }
-
+        
+        // 17
         [Fact]
         public void GetOrderDetailByOrderId_ValidId_ReturnsProductNameUnitPriceAndQuantity()
         {
@@ -196,6 +213,7 @@ namespace Assignment4.Tests
             Assert.Equal(12, orderDetails.First().Quantity);
         }
 
+        // 18
         [Fact]
         public void GetOrderDetailByProductId_ValidId_ReturnsOrderDateUnitPriceAndQuantity()
         {
@@ -207,6 +225,6 @@ namespace Assignment4.Tests
             Assert.Equal(3, orderDetails.First().Quantity);
         }
 */
-        
+
     }
 }
