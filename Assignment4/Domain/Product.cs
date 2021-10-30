@@ -14,9 +14,11 @@ namespace Assignment4.Domain
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        public List<OrderDetail> OrderDetails { get; set; }
+
         public override string ToString()
         {
-            return $"Id = {Id}, Name = {Name}, Category = {Category}";
+            return $"Id = {Id}, Name = {Name}, Category = {CategoryId}";
         }
     }
 }

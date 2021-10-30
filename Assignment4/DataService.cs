@@ -16,12 +16,15 @@ namespace Assignment4
         IList<Category> GetCategories();
         bool CreateCategory(Category category);
 
-        IList<Product> GetProducts();
+        //IList<Product> GetProducts();
 
         Category GetCategory(int id);
 
-        IList<Order> GetOrders();
+        Order GetOrder(int id);
 
+        IList<Order> Order();
+
+       
       
         
 
@@ -58,9 +61,9 @@ namespace Assignment4
         public Category GetCategory(int id)
         {
             var c = new Category();
-            foreach(Category category in GetCategories())
+            foreach (Category category in GetCategories())
             {
-                if(category.Id == id)
+                if (category.Id == id)
                 {
                     c = category;
                 }
@@ -70,19 +73,34 @@ namespace Assignment4
         }
 
 
-        public IList<Product> GetProducts()
+        public IList<Product> GetProducts(int id)
         {
             var ctx = new NorthwindContext();
             return ctx.Products.ToList();
         }
 
-        public IList<Order> GetOrders()
+
+        public IList<Order> Order()
         {
             var cxt = new NorthwindContext();
             return cxt.Orders.ToList();
-            
         }
 
+        public Order GetOrder(int id)
+        {
+            var o = new Order();
+            foreach (Order order in Order())
+            {
+                if (order.Id == id)
+                {
+                   o = order;
+
+                }
+            }
+            return o;
+               
+        }
+        
     }
 }
     

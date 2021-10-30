@@ -36,7 +36,7 @@ namespace Assignment4.Tests
             Assert.Equal("Beverages", category.Name);
         }
 
-        /*
+       /*
          // 04
          [Fact]
          public void CreateCategory_ValidData_CreteCategoryAndRetunsNewObject()
@@ -149,7 +149,7 @@ namespace Assignment4.Tests
              Assert.Equal("NuNuCa Nuﬂ-Nougat-Creme", products.First().ProductName);
              Assert.Equal("Flotemysost", products.Last().ProductName);
          }
-
+       */
       //    orders 
 
          // 13
@@ -164,7 +164,7 @@ namespace Assignment4.Tests
              Assert.Null(order.ShipName);
              Assert.Null(order.ShipCity);
          }
-
+        
          // 14
          [Fact]
          public void GetOrder_ValidId_ReturnsCompleteOrder()
@@ -175,7 +175,7 @@ namespace Assignment4.Tests
              Assert.Equal("Queso Cabrales", order.OrderDetails.First().Product.Name);
              Assert.Equal("Dairy Products", order.OrderDetails.First().Product.Category.Name);
          }
-
+        /*
          // 15
          [Fact]
          public void GetOrders()
