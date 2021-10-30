@@ -48,7 +48,8 @@ namespace Assignment4
 
             // Can test stuff here live insted of tests:
             DataService dataService = new DataService();
-
+            Order order = dataService.GetOrder(10248);
+            Console.WriteLine(order);
             
          // eg:
          //   dataService.GetCategory(1);

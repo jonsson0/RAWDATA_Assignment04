@@ -19,7 +19,7 @@ namespace Assignment4.Domain
 
         public override string ToString()
         {
-            return $"Id = {Id}, Name = {Name}";
+            return $"Id = {Id}, Name = {Name}, Product = {Product}";
         }
     }
 }

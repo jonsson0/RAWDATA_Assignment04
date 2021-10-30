@@ -42,16 +42,27 @@ namespace Assignment4
             modelBuilder.Entity<Category>().Property(x => x.Id).HasColumnName("categoryid");
             modelBuilder.Entity<Category>().Property(x => x.Name).HasColumnName("categoryname");
             modelBuilder.Entity<Category>().Property(x => x.Description).HasColumnName("description");
-            
+            modelBuilder.Entity<Category>().HasMany(x => x.Product).WithOne(x => x.Category).IsRequired();
+
+
+
 
             modelBuilder.Entity<Product>().ToTable("products");
             modelBuilder.Entity<Product>().Property(x => x.Id).HasColumnName("productid");
-            modelBuilder.Entity<Product>().Property(x => x.Name).HasColumnName("productname");
+            modelBuilder.Entity<Product>().Property(x => x.Name).IsRequired().HasColumnName("productname");
             modelBuilder.Entity<Product>().Property(x => x.CategoryId).HasColumnName("categoryid");
             modelBuilder.Entity<Product>()
-                .HasOne(p => p.Category)
-                .WithMany(c => c.Product);
-               
+                .HasOne(x => x.Category).WithMany(x => x.Product).HasForeignKey(x => x.CategoryId);
+            modelBuilder.Entity<Product>()
+                .HasMany(x => x.OrderDetails).WithOne(x => x.Product);
+                
+
+
+
+
+
+
+
 
             modelBuilder.Entity<Order>().ToTable("orders");
             modelBuilder.Entity<Order>().Property(x => x.Id).HasColumnName("orderid");
@@ -60,7 +71,13 @@ namespace Assignment4
             modelBuilder.Entity<Order>().Property(x => x.Freight).HasColumnName("freight");
             modelBuilder.Entity<Order>().Property(x => x.ShipName).HasColumnName("shipname");
             modelBuilder.Entity<Order>().Property(x => x.ShipCity).HasColumnName("shipcity");
-        
+            modelBuilder.Entity<Order>()
+                .HasMany(x => x.OrderDetails).WithOne(x => x.Orders);
+            
+
+
+
+
 
 
             modelBuilder.Entity<OrderDetail>().ToTable("orderdetails");
@@ -70,11 +87,17 @@ namespace Assignment4
             modelBuilder.Entity<OrderDetail>().Property(x => x.OrderId).HasColumnName("orderid");
             modelBuilder.Entity<OrderDetail>().Property(x => x.ProductId).HasColumnName("productid");
             modelBuilder.Entity<OrderDetail>()
-                .HasKey(x => new { x.ProductId, x.OrderId}) ;
+                .HasKey(x => new {x.OrderId});
             modelBuilder.Entity<OrderDetail>()
-                .HasOne(od => od.Product)
-                .WithMany(p => p.OrderDetails);
-                
+                .HasOne(x => x.Orders).WithMany(x => x.OrderDetails).HasForeignKey(x => x.OrderId);
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(x => x.Product).WithMany(x => x.OrderDetails).HasForeignKey(x=> x.ProductId);
+
+
+
+
+
+
 
 
         }

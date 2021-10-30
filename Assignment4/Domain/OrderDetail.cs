@@ -13,9 +13,10 @@ namespace Assignment4.Domain
         public string Quantity { get; set; }
         public string Discount { get; set; }
         public int OrderId { get; set; }
-        public List<Order> Orders { get; set; }
+        public Order Orders { get; set; }
         public int ProductId { get; set; }
         public  Product Product { set; get; }
+ 
          
         
    
@@ -25,7 +26,7 @@ namespace Assignment4.Domain
 
 public override string ToString()
         {
-            return $"Unit Price = {UnitPrice}, Quantity = {Quantity}, Discount = {Discount}, Order = {Orders}, Product = {Product}";
+            return $"Unit Price = {UnitPrice}, Quantity = {Quantity}, Discount = {Discount}, Product = {Product}";
         }
         
      

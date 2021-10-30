@@ -16,7 +16,7 @@ namespace Assignment4
         IList<Category> GetCategories();
         bool CreateCategory(Category category);
 
-        //IList<Product> GetProducts();
+        IList<Product> GetProducts(int id);
 
         Category GetCategory(int id);
 
@@ -89,12 +89,12 @@ namespace Assignment4
         public Order GetOrder(int id)
         {
             var o = new Order();
+            var od = new OrderDetail();
             foreach (Order order in Order())
             {
                 if (order.Id == id)
                 {
-                   o = order;
-
+                    o = order;
                 }
             }
             return o;
