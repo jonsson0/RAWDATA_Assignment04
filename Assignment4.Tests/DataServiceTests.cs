@@ -36,7 +36,7 @@ namespace Assignment4.Tests
             Assert.Equal("Beverages", category.Name);
         }
 
-       /*
+       
          // 04
          [Fact]
          public void CreateCategory_ValidData_CreteCategoryAndRetunsNewObject()
@@ -48,7 +48,7 @@ namespace Assignment4.Tests
              Assert.Equal("CreateCategory_ValidData_CreteCategoryAndRetunsNewObject", category.Description);
 
              // cleanup
-             service.DeleteCategory(category.Id);
+            // service.DeleteCategory(category.Id);
          }
       
         
@@ -65,6 +65,7 @@ namespace Assignment4.Tests
              Assert.Null(category);
          }
 
+        
          // 06
          [Fact]
          public void DeleteCategory_InvalidId_ReturnsFalse()
@@ -74,6 +75,7 @@ namespace Assignment4.Tests
              Assert.False(result);
          }
 
+        
          // 07
          [Fact]
          public void UpdateCategory_NewNameAndDescription_UpdateWithNewValues()
@@ -93,6 +95,7 @@ namespace Assignment4.Tests
              service.DeleteCategory(category.Id);
          }
 
+        
          // 08
          [Fact]
          public void UpdateCategory_InvalidID_ReturnsFalse()
@@ -102,7 +105,7 @@ namespace Assignment4.Tests
              Assert.False(result);
          }
 
-
+        /*
        //   products 
 
          // 09

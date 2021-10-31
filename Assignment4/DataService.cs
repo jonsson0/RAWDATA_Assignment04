@@ -14,7 +14,12 @@ namespace Assignment4
     public interface IDataService
     {
         IList<Category> GetCategories();
-        bool CreateCategory(Category category);
+
+        Category CreateCategory(String name, String description);
+
+        bool DeleteCategory(int categoryID);
+
+       bool UpdateCategory(int categoryID, string newName, string newDescription);
 
         IList<Product> GetProducts(int id);
 
@@ -33,6 +38,7 @@ namespace Assignment4
 
     public class DataService : IDataService
     {
+       /* I DONT KNOW IF WE MAY NEED THIS YET
         public bool CreateCategory(Category category)
         {
             var ctx = new NorthwindContext();
@@ -40,8 +46,11 @@ namespace Assignment4
             ctx.Add(category);
             return ctx.SaveChanges() > 0;
         }
+       */
 
-        public bool CreateCategory(String name, String description)
+        public 
+            //bool
+           Category CreateCategory(String name, String description)
         {
             var ctx = new NorthwindContext();
             var category = new Category();
@@ -49,8 +58,45 @@ namespace Assignment4
             category.Name = name;
             category.Description = description;
             ctx.Add(category);
-            return ctx.SaveChanges() > 0;
+            ctx.SaveChanges();
+            return category;
         }
+
+        
+        public bool DeleteCategory(int categoryID)
+        {
+
+            var ctx = new NorthwindContext();
+            var category = ctx.Categories.Find(categoryID);
+
+            if (category == null)
+            {
+                return false;
+            }
+            else
+            {
+                ctx.Remove(category);
+                ctx.SaveChanges();
+                return true;
+            }
+            
+        }
+       public bool UpdateCategory(int categoryID, string newName, string newDescription)
+        {
+           
+            var ctx = new NorthwindContext();
+            var category = ctx.Categories.Find(categoryID);
+            if(category == null)
+            {
+                return false;
+            }
+            category.Name = newName;
+            category.Description = newDescription;
+            ctx.SaveChanges();
+            return true;
+        }
+
+
 
         public IList<Category> GetCategories()
         {
@@ -60,16 +106,8 @@ namespace Assignment4
 
         public Category GetCategory(int id)
         {
-            var c = new Category();
-            foreach (Category category in GetCategories())
-            {
-                if (category.Id == id)
-                {
-                    c = category;
-                }
-            }
-            Console.WriteLine(c.Name);
-            return c;
+            var ctx = new NorthwindContext();
+            return ctx.Categories.Find(id);
         }
 
 

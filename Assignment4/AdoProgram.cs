@@ -35,6 +35,12 @@ namespace Assignment4
 
             var reader = cmd.ExecuteReader();
 
+            DataService dataService = new DataService();
+
+            //   dataService.CreateCategory("testtest", "testtest");
+
+            dataService.DeleteCategory(12);
+
             while (reader.Read())
             {
                 var category = new Category
@@ -47,9 +53,13 @@ namespace Assignment4
             }
 
             // Can test stuff here live insted of tests:
-            DataService dataService = new DataService();
-            Order order = dataService.GetOrder(10248);
-            Console.WriteLine(order);
+           // DataService dataService = new DataService();
+
+          //  dataService.CreateCategory("testtest", "testtest");
+          //  dataService.DeleteCategory(10);
+
+         //   Order order = dataService.GetOrder(10248);
+          //  Console.WriteLine(order);
             
          // eg:
          //   dataService.GetCategory(1);
