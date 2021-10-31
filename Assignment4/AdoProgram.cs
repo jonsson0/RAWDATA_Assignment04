@@ -35,12 +35,6 @@ namespace Assignment4
 
             var reader = cmd.ExecuteReader();
 
-            DataService dataService = new DataService();
-
-            //   dataService.CreateCategory("testtest", "testtest");
-
-            dataService.DeleteCategory(12);
-
             while (reader.Read())
             {
                 var category = new Category

@@ -97,7 +97,6 @@ namespace Assignment4
         }
 
 
-
         public IList<Category> GetCategories()
         {
             var ctx = new NorthwindContext();
