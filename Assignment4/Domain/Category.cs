@@ -17,6 +17,7 @@ namespace Assignment4.Domain
 
         public List<Product> Product { set; get; }
 
+
         public override string ToString()
         {
             return $"Id = {Id}, Name = {Name}, Product = {Product}";

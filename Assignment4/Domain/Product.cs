@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Assignment4.Domain
 {
     //ass4
@@ -12,6 +14,13 @@ namespace Assignment4.Domain
         public int Id { get; set; }
         public string Name { get; set; }
         public int CategoryId { get; set; }
+
+        public int UnitPrice { get; set; }
+
+        public string QuantityPerUnit { get; set; }
+
+        public int UnitsInStock { get; set; }
+
         public Category Category { get; set; }
 
         public List<OrderDetail> OrderDetails { get; set; }

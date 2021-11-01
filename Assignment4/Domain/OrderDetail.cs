@@ -13,9 +13,10 @@ namespace Assignment4.Domain
         public string Quantity { get; set; }
         public string Discount { get; set; }
         public int OrderId { get; set; }
-        public Order Orders { get; set; }
+        public Order Order { get; set; }
         public int ProductId { get; set; }
-        public  Product Product { set; get; }
+
+        public Product Product { set; get; }
  
          
         

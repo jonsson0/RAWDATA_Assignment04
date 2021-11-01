@@ -30,7 +30,7 @@ namespace Assignment4
 
             var cmd = conn.CreateCommand();
             //  cmd.CommandText = "select * from northwind.categories";
-            cmd.CommandText = "select * from categories";
+            cmd.CommandText = "SELECT * FROM categories";
             cmd.Connection = conn;
 
             var reader = cmd.ExecuteReader();
@@ -41,18 +41,21 @@ namespace Assignment4
                 {
                     Id = reader.GetInt32(0),
                     Name = reader.GetString(1),
-                    Description = reader.GetString(2)
+                    Description = reader.GetString(2)    
+                    
                 };
                 Console.WriteLine(category);
             }
 
             // Can test stuff here live insted of tests:
-           // DataService dataService = new DataService();
+            DataService dataService = new DataService();
 
-          //  dataService.CreateCategory("testtest", "testtest");
-          //  dataService.DeleteCategory(10);
+            //  dataService.CreateCategory("testtest", "testtest");
+            //  dataService.DeleteCategory(10);
 
-         //   Order order = dataService.GetOrder(10248);
+            Console.WriteLine(dataService.GetProduct(2));
+
+         
           //  Console.WriteLine(order);
             
          // eg:

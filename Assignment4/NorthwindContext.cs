@@ -51,11 +51,14 @@ namespace Assignment4
             modelBuilder.Entity<Product>().Property(x => x.Id).HasColumnName("productid");
             modelBuilder.Entity<Product>().Property(x => x.Name).IsRequired().HasColumnName("productname");
             modelBuilder.Entity<Product>().Property(x => x.CategoryId).HasColumnName("categoryid");
+            modelBuilder.Entity<Product>().Property(x => x.UnitPrice).HasColumnName("unitprice");
+            modelBuilder.Entity<Product>().Property(x => x.QuantityPerUnit).HasColumnName("quantityperunit");
+            modelBuilder.Entity<Product>().Property(x => x.UnitsInStock).HasColumnName("unitsinstock");
             modelBuilder.Entity<Product>()
-                .HasOne(x => x.Category).WithMany(x => x.Product).HasForeignKey(x => x.CategoryId);
+            .HasOne(x => x.Category).WithMany(x => x.Product).HasForeignKey(x => x.CategoryId);
             modelBuilder.Entity<Product>()
-                .HasMany(x => x.OrderDetails).WithOne(x => x.Product);
-                
+            .HasMany(x => x.OrderDetails).WithOne(x => x.Product);
+
 
 
 
@@ -72,7 +75,7 @@ namespace Assignment4
             modelBuilder.Entity<Order>().Property(x => x.ShipName).HasColumnName("shipname");
             modelBuilder.Entity<Order>().Property(x => x.ShipCity).HasColumnName("shipcity");
             modelBuilder.Entity<Order>()
-                .HasMany(x => x.OrderDetails).WithOne(x => x.Orders);
+                .HasMany(x => x.OrderDetails).WithOne(x => x.Order);
             
 
 
@@ -89,16 +92,9 @@ namespace Assignment4
             modelBuilder.Entity<OrderDetail>()
                 .HasKey(x => new {x.OrderId});
             modelBuilder.Entity<OrderDetail>()
-                .HasOne(x => x.Orders).WithMany(x => x.OrderDetails).HasForeignKey(x => x.OrderId);
+                .HasOne(x => x.Order).WithMany(x => x.OrderDetails).HasForeignKey(x => x.OrderId);
             modelBuilder.Entity<OrderDetail>()
-                .HasOne(x => x.Product).WithMany(x => x.OrderDetails).HasForeignKey(x=> x.ProductId);
-
-
-
-
-
-
-
+                .HasOne(x => x.Product).WithMany(x => x.OrderDetails).HasForeignKey(x=> x.OrderId);
 
         }
     }

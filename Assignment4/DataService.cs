@@ -29,9 +29,9 @@ namespace Assignment4
 
         IList<Order> Order();
 
-       
-      
-        
+        Product GetProduct(int productId);
+
+
 
 
     }
@@ -117,6 +117,12 @@ namespace Assignment4
         }
 
 
+        public Product GetProduct(int id)
+        {
+            var ctx = new NorthwindContext();
+            return ctx.Products.Find(id);
+        }
+
         public IList<Order> Order()
         {
             var cxt = new NorthwindContext();
@@ -125,6 +131,10 @@ namespace Assignment4
 
         public Order GetOrder(int id)
         {
+            var ctx = new NorthwindContext();
+            return ctx.Orders.Find(id);
+
+            /*
             var o = new Order();
             var od = new OrderDetail();
             foreach (Order order in Order())
@@ -135,6 +145,7 @@ namespace Assignment4
                 }
             }
             return o;
+            */
                
         }
         
