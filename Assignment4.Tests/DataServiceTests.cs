@@ -129,7 +129,7 @@ namespace Assignment4.Tests
              Assert.Equal("Chai", product.Name);
              Assert.Equal("Beverages", product.Category.Name);
          }
-        /*
+        
          // 11
          [Fact]
          public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
@@ -141,7 +141,7 @@ namespace Assignment4.Tests
              Assert.Equal("Beverages", products.First().CategoryName);
              Assert.Equal("Lakkalikööri", products.Last().Name);
          }
-
+        /*
          // 12
          [Fact]
          public void GetProduct_NameSubString_ReturnsProductsThatMachesTheSubString()

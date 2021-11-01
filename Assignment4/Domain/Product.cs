@@ -23,11 +23,13 @@ namespace Assignment4.Domain
 
         public Category Category { get; set; }
 
+        public string CategoryName { get; set; }
+
         public List<OrderDetail> OrderDetails { get; set; }
 
         public override string ToString()
         {
-            return $"Id = {Id}, Name = {Name}, Category = {CategoryId}";
+            return $"Id = {Id}, Name = {Name}, Category = {Category}";
         }
     }
 }

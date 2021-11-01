@@ -53,6 +53,7 @@ namespace Assignment4
             //  dataService.CreateCategory("testtest", "testtest");
             //  dataService.DeleteCategory(10);
 
+            Console.WriteLine("YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
             Console.WriteLine(dataService.GetProduct(2));
 
          
