@@ -127,11 +127,7 @@ namespace Assignment4
         {
             var ctx = new NorthwindContext();
 
-            var products = ctx.Products
-            .Include(x => x.Category)
-            .Where(p => p.CategoryId == categoryId)
-            .ToList();
-
+            var products = ctx.Products.Include(x => x.Category).Where(p => p.CategoryId == categoryId).ToList();
             return products;
         }
 

@@ -54,7 +54,7 @@ namespace Assignment4
             //  dataService.DeleteCategory(10);
 
             Console.WriteLine("YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-            Console.WriteLine(dataService.GetProduct(2));
+            Console.WriteLine(dataService.GetProductByCategory(1));
 
          
           //  Console.WriteLine(order);
